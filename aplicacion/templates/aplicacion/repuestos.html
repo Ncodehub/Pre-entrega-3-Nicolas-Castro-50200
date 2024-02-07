@@ -1,0 +1,35 @@
+{% extends 'aplicacion/home.html' %}  <!-- Exrendemos el html de Home a esta página-->
+
+{% block descripcion %}
+<h1> Lista de Inventario </h1> 
+{% endblock descripcion %}
+
+{% block contenido %}
+<a href="http://localhost:8000/aplicacion/buscar/" class="btn btn-primary">Buscar Repuestos</a> <!-- Boton para redireccionar la página-->
+<a href="http://localhost:8000/aplicacion/repuestos_form/" class="btn btn-primary">Agregar Repuesto</a> <!-- Boton para redireccionar la página-->
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for r in repuestos  %}
+            <tr>
+                <td>{{ r.id }}</td>
+                <td>{{ r.nombre }}</td>
+                <td>{{ r.marca }}</td>
+                <td>{{ r.precio }}</td>
+                <td>{{ r.cantidad }}</td>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+{% endblock contenido %}
+    
+    
